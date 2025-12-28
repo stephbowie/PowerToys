@@ -39,14 +39,6 @@ foreach ($csprojFile in $csprojFilesArray) {
     if ($csprojFile -like '*TemplateCmdPalExtension.csproj') {
         continue
     }
-    
-    # The CmdPal.Core projects use a common shared props file, so skip them
-    if ($csprojFile -like '*Microsoft.CmdPal.Core.*.csproj') {
-        continue
-    }
-    if ($csprojFile -like '*Microsoft.CmdPal.Ext.Shell.csproj') {
-        continue
-    }
 
     $importExists = Test-ImportSharedCsWinRTProps -filePath $csprojFile
     if (!$importExists) {
